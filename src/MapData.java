@@ -9,7 +9,7 @@ public class MapData {
             int screenWidth = 1280;
             int screenHeight = 720;
 
-            OsmParser osmParser = new OsmParser("C:/Users/Alex/Downloads/test.osm");
+            OsmParser osmParser = new OsmParser("./src/maps/UML.osm");
 
             double minLat = Double.parseDouble(osmParser.getMinLat());
             double minLon = Double.parseDouble(osmParser.getMinLon());
@@ -20,6 +20,7 @@ public class MapData {
             ArrayList<Node> nodes = osmParser.getNodes();
             ArrayList<Way> ways = osmParser.getWays();
 
+            System.out.println("Adding Nodes to Ways...");
             // Loop through ways
             for (int i = 0; i < ways.size(); i++) {
                 Way currentWay = ways.get(i);
@@ -41,6 +42,7 @@ public class MapData {
 
                 currentWay.clearRefs();
             }
+            System.out.println("Done");
             System.out.println("Starting Display...");
             display.start();
 
